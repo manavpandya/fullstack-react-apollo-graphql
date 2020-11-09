@@ -10,6 +10,12 @@ const typeDefs = gql`
         isBooked: Boolean!
     }
 
+    type Mission {
+        name: String
+        # Field with query param
+        missionPatch(size: PatchSize): String
+    }
+
     type Rocket {
         id: ID!
         name: String
@@ -21,12 +27,6 @@ const typeDefs = gql`
         email: String!
         # Can be empty but not null
         trips: [Launch]! 
-    }
-
-    type Mission {
-        name: String
-        # Field with query param
-        missionPatch(size: PatchSize): String
     }
 
     enum PatchSize {
